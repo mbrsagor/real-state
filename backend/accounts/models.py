@@ -6,7 +6,7 @@ class UserAccountManager(BaseUserManager):
 
     def create_user(self, email, name, password=None):
         if not email:
-            raise ValueError('User must have an email address')
+            raise ValueError('Users must have an email address')
 
         email = self.normalize_email(email)
         user = self.model(email=email, name=name)
@@ -32,7 +32,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELD = ['name']
+    REQUIRED_FIELDS = ['name']
 
     def get_full_name(self):
         return self.name
