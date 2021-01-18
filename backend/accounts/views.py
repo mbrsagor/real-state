@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-class SingupView(APIView):
+class SignUpView(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, format=None):
