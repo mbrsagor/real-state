@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'realtors',
+    'listings',
     # 3rd pary apps
     'corsheaders',
     'rest_framework'
