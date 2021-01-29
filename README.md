@@ -10,8 +10,8 @@ The following command will install for mac os I thing windows will be similar ty
 
 Open your terminal then run the following command:
 ```
-git clone https://github.com/aureatelabs/react-redux-todo-list.git
-cd react-redux-todo-list
+git clone https://github.com/mbrsagor/djangoReduxTodo.git
+cd djangoReduxTodo
 virtualenv venv --python=python3.8
 source venv/bin/activate
 pip install -r requirements.txt
