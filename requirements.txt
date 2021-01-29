@@ -1,6 +1,7 @@
 asgiref==3.3.1
 autopep8==1.5.4
 Django==3.1.5
+django-cors-headers==3.7.0
 djangorestframework==3.12.2
 pycodestyle==2.6.0
 pytz==2020.5
