@@ -18,6 +18,10 @@ pip install -r requirements.txt
 ./manage.py migrate 
 ./manage.py createsuperuser 
 ./manage.py runserver
+cd todo-frontned
+npm install
+npm start
 ```
 
-### Setup frontend part
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
