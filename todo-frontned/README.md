@@ -1,8 +1,5 @@
-## Install redux library
-
+# Install redux library
 ```base
-yarn add redux-thunk react-redux redux-devtools-extension
+yarn add axios redux react-redux redux-thunk redux-devtools-extension react-dom react-router-dom
 yarn add node-sass@4.14.1
-yarn add react-bootstrap
-yarn add react-router-dom
 ```
