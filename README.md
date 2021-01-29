@@ -1,2 +1,2 @@
-# Real-state
-> Django Rest API and React redux simple real-state project.
+# Django React, Redux todo app
+> Django Rest API and React-redux simple todo web app.
