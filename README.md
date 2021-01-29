@@ -9,7 +9,7 @@ The following command will install for mac os I thing windows will be similar ty
 - Django 3.1.5
 
 Open your terminal then run the following command:
-```
+```base
 git clone https://github.com/mbrsagor/djangoReduxTodo.git
 cd djangoReduxTodo
 virtualenv venv --python=python3.8

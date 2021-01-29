@@ -1,7 +1,8 @@
-# Getting Started with Create React App
+## Install redux library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+```base
+yarn add redux-thunk react-redux redux-devtools-extension
+yarn add node-sass@4.14.1
+yarn add react-bootstrap
+yarn add react-router-dom
+```
