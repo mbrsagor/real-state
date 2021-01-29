@@ -41,7 +41,6 @@ class TodoFrom extends Component {
               placeholder="Enter todo description"
               cols="30"
               rows="5"
-              name="content"
               value={this.state.content}
               onChange={this.changeHandler}
             ></textarea>

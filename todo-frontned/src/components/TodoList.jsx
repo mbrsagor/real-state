@@ -1,23 +1,55 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchTodo } from "../store/actions/todoAction";
+// import { Link } from "react-router-dom";
 
 class TodoList extends Component {
+  componentDidMount() {
+    this.props.fetchTodo();
+  }
   render() {
+    const { todos } = this.props;
+    console.log(todos);
     return (
       <>
-        <ul className="list-group">
-          <li className="list-group-item">
-            My todo list 1 <span className="ml-3 bg-success">Done</span>
-          </li>
-          <li className="list-group-item">
-            My todo list 2 <span className="ml-3 bg-danger">In Complete</span>
-          </li>
-          <li className="list-group-item">
-            My todo list 3 <span className="ml-3 bg-warning">InProcess</span>
-          </li>
-        </ul>
+        {todos &&
+          todos.map((todo, index) => {
+            return (
+              <ul key={index} className="list-group">
+                <li className="list-group-item">
+                  {todo.title}{" "}
+                  <>
+                    {todo.is_save ? (
+                      <span className="ml-3 bg-success text-light p-1">
+                        Publish
+                      </span>
+                    ) : (
+                      <span className="ml-3 bg-warning text-light p-1">
+                        Private
+                      </span>
+                                )}
+                            <span className="ml-3">{ todo.created_at}</span>
+                  </>
+                  <div className="mt-3">
+                    {/* <Link className="btn btn-info btn-sm mr-2" to="facebook">Details</Link> */}
+                    <button className="btn btn-success btn-sm mr-2">
+                      Update
+                    </button>
+                    <button className="btn btn-danger btn-sm mr-2">
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            );
+          })}
       </>
     );
   }
 }
 
-export default TodoList;
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+
+export default connect(mapStateToProps, { fetchTodo })(TodoList);
