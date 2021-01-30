@@ -7,8 +7,13 @@ const todoReducer = (state = [], action) => {
     case Type.CREATE_TODO:
       return {
         todos: [action.payload],
-        error: {}
+        // error: {}
       };
+    case Type.DETAIL_TODO:
+      return {
+        ...state,
+        todo: action.payload
+      }
     case Type.GET_ERRORS:
       return {
         ...state,

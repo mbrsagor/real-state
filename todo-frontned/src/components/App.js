@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Todo from "../pages/Todo";
 import AddTodo from "../pages/AddTodo";
+import TodoDetail from "../pages/TodoDetail";
 import Header from "./Header";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Todo} />
         <Route path="/add-todo" component={AddTodo} />
+        <Route path="/todo-details/:id" component={TodoDetail} />
       </Switch>
     </BrowserRouter>
   );

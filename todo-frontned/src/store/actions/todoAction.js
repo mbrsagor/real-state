@@ -41,3 +41,19 @@ export const createTodo = (todo) => (dispatch) => {
       });
     });
 };
+
+// Todo Detail page
+export const todoDetails = id => (dispatch) => {
+  axios
+    .get(`http://127.0.0.1:8000/api/todo/${id}/`)
+    .then((res) => {
+      dispatch({
+        type: Type.DETAIL_TODO,
+        payload: res.data,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(returnErrors(error.res.data));
+    });
+};

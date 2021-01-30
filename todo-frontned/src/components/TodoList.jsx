@@ -20,7 +20,7 @@ class TodoList extends Component {
                     <span className="ml-3">{todo.created_at}</span>
                   </>
                   <div className="mt-3">
-                    <Link className="btn btn-info btn-sm mr-2 detail_link" to="facebook">Details</Link>
+                    <Link className="btn btn-info btn-sm mr-2 detail_link" to={`/todo-details/${todo.id}`}>Details</Link>
                     <button className="btn btn-success btn-sm mr-2">
                       Update
                     </button>
