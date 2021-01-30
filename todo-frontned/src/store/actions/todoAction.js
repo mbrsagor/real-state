@@ -21,15 +21,17 @@ export const fetchTodo = () => (dispatch) => {
 // Todo create
 export const createTodo = (todo) => (dispatch) => {
   axios.post("http://127.0.0.1:8000/api/todo/", todo)
-    .then((response) => {
-    //   console.log(response.data);
+    .then((res) => {
+      console.log(res.data);
       dispatch({
         type: Type.CREATE_TODO,
-        payload: response.data,
+        payload: {
+          todos: res.data,
+        },
       });
     })
     .catch((error) => {
-        console.log(error.response.data);
-        dispatch(returnErrors(error.response.data));
+        console.log(error.res);
+        dispatch(returnErrors(error.res));
     });
 };

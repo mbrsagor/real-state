@@ -9,10 +9,6 @@ class TodoFrom extends Component {
     is_save: true,
   };
 
-  componentDidMount() {
-    this.props.createTodo();
-  }
-
   changeHandler = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -21,6 +17,7 @@ class TodoFrom extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
+    this.props.createTodo(this.state);
     this.setState({
       title: "",
       content: "",

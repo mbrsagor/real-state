@@ -8,16 +8,14 @@ class TodoList extends Component {
     this.props.fetchTodo();
   }
   render() {
-    const { todos } = this.props;
-    // console.log(todos);
     return (
       <>
-        {todos &&
-          todos.map((todo, index) => {
-            return (
-              <ul key={index} className="list-group">
-                <li className="list-group-item">
-                  {todo.title}{" "}
+        <ul>
+          {this.props &&
+            this.props.todos.map(todo => {
+              return (
+                <li key={todo.id} className="list-group-item">
+                  {todo.title}
                   <>
                     {todo.is_save ? (
                       <span className="ml-3 bg-success text-light p-1">
@@ -40,9 +38,9 @@ class TodoList extends Component {
                     </button>
                   </div>
                 </li>
-              </ul>
-            );
-          })}
+              );
+            })}
+        </ul>
       </>
     );
   }
