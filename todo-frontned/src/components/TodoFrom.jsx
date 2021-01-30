@@ -7,7 +7,19 @@ class TodoFrom extends Component {
     title: "",
     content: "",
     is_save: true,
+    error: {},
   };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (
+      JSON.stringify(nextProps.todos.error) !== JSON.stringify(prevState.error)
+    ) {
+      return {
+        error: nextProps.todos.error,
+      };
+    }
+    return null;
+  }
 
   changeHandler = (event) => {
     this.setState({
@@ -25,6 +37,7 @@ class TodoFrom extends Component {
   };
 
   render() {
+    const { title, content, error } = this.state;
     return (
       <>
         <form onSubmit={this.submitHandler}>
@@ -33,24 +46,26 @@ class TodoFrom extends Component {
             <input
               type="text"
               name="title"
-              value={this.state.title}
+              value={title}
               onChange={this.changeHandler}
-              className="form-control"
+              className={error ? 'form-control is-invalid': 'form-control'}
               placeholder="Enter title here"
             />
+            {error && <div className="invalid-feedback">{error.title}</div>}
           </div>
           <div className="from-group">
             <label htmlFor="content">Enter Description</label>
             <textarea
               name="content"
               id="content"
-              className="form-control"
+              className={error ? 'form-control is-invalid': 'form-control'}
               placeholder="Enter todo description"
               cols="30"
               rows="5"
-              value={this.state.content}
+              value={content}
               onChange={this.changeHandler}
             ></textarea>
+            {error && <div className="invalid-feedback">{error.content}</div>}
           </div>
           <div className="from-group mt-2 mb-2">
             Is Save <input type="checkbox" value={this.state.is_save} />
@@ -62,4 +77,8 @@ class TodoFrom extends Component {
   }
 }
 
-export default connect(null, { createTodo })(TodoFrom);
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+
+export default connect(mapStateToProps, { createTodo })(TodoFrom);

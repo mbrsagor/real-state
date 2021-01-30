@@ -34,6 +34,11 @@ export const createTodo = (todo) => (dispatch) => {
     })
     .catch((error) => {
       console.log(error.res);
-      dispatch(returnErrors(error.res));
+      dispatch({
+        type: Type.GET_ERRORS,
+        payload: {
+          error: error.res,
+        },
+      });
     });
 };
