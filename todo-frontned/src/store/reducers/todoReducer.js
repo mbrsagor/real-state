@@ -3,11 +3,11 @@ import * as Type from "../actions/types";
 const todoReducer = (state = [], action) => {
   switch (action.type) {
     case Type.FETCH_TODO:
-      return action.payload;
-    case Type.FETCH_TODO_LOADING:
-      return action.payload;
-    case Type.FETCH_TODO_FAIL:
-      return action.payload.error;
+      return action.payload
+    case Type.CREATE_TODO:
+      return {
+        todos: [action.payload],
+      };
     default:
       return state;
   }

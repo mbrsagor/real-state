@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createTodo } from "../store/actions/todoAction";
 
 class TodoFrom extends Component {
   state = {
@@ -7,14 +9,22 @@ class TodoFrom extends Component {
     is_save: true,
   };
 
+  componentDidMount() {
+    this.props.createTodo();
+  }
+
   changeHandler = (event) => {
     this.setState({
-      [event.target.value]: event.target.name,
+      [event.target.name]: event.target.value,
     });
   };
 
   submitHandler = (event) => {
     event.preventDefault();
+    this.setState({
+      title: "",
+      content: "",
+    });
   };
 
   render() {
@@ -55,4 +65,4 @@ class TodoFrom extends Component {
   }
 }
 
-export default TodoFrom;
+export default connect(null, { createTodo })(TodoFrom);

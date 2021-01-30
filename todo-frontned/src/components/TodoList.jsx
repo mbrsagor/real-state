@@ -9,7 +9,7 @@ class TodoList extends Component {
   }
   render() {
     const { todos } = this.props;
-    console.log(todos);
+    // console.log(todos);
     return (
       <>
         {todos &&
@@ -27,8 +27,8 @@ class TodoList extends Component {
                       <span className="ml-3 bg-warning text-light p-1">
                         Private
                       </span>
-                                )}
-                            <span className="ml-3">{ todo.created_at}</span>
+                    )}
+                    <span className="ml-3">{todo.created_at}</span>
                   </>
                   <div className="mt-3">
                     {/* <Link className="btn btn-info btn-sm mr-2" to="facebook">Details</Link> */}

@@ -1,17 +1,35 @@
-import axios from 'axios';
-import * as Type from './types';
+import axios from "axios";
+import * as Type from "./types";
+import { returnErrors } from './message';
 
+// Todo fetch
+export const fetchTodo = () => (dispatch) => {
+  axios.get("http://127.0.0.1:8000/api/todo/")
+    .then((res) => {
+      // console.log(res.data);
+      dispatch({
+        type: Type.FETCH_TODO,
+        payload: res.data,
+      });
+    })
+    .catch((error) => {
+        console.log(error.res.data);
+        dispatch(returnErrors(error.res.data))
+    });
+};
 
-export const fetchTodo = () => dispatch => {
-    axios.get('http://127.0.0.1:8000/api/todo/')
-        .then((res) => {
-            // console.log(res.data);
-            dispatch({
-                type: Type.FETCH_TODO,
-                payload: res.data
-            })
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-}
+// Todo create
+export const createTodo = (todo) => (dispatch) => {
+  axios.post("http://127.0.0.1:8000/api/todo/", todo)
+    .then((response) => {
+    //   console.log(response.data);
+      dispatch({
+        type: Type.CREATE_TODO,
+        payload: response.data,
+      });
+    })
+    .catch((error) => {
+        console.log(error.response.data);
+        dispatch(returnErrors(error.response.data));
+    });
+};
