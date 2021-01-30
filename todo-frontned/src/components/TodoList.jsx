@@ -14,18 +14,9 @@ class TodoList extends Component {
           {this.props && this.props.todos.length > 0 ? (
             this.props.todos.map((todo, index) => {
               return (
-                <li key={todo.id} className="list-group-item todo_item_list">
+                <li key={index} className="list-group-item todo_item_list">
                   {todo.title}
                   <>
-                    {todo.is_save ? (
-                      <span className="ml-3 bg-success text-light status">
-                        Publish
-                      </span>
-                    ) : (
-                      <span className="ml-3 bg-warning text-light status">
-                        Private
-                      </span>
-                    )}
                     <span className="ml-3">{todo.created_at}</span>
                   </>
                   <div className="mt-3">

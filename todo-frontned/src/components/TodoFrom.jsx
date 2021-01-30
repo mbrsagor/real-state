@@ -6,7 +6,6 @@ class TodoFrom extends Component {
   state = {
     title: "",
     content: "",
-    is_save: true,
     error: {},
   };
 
@@ -67,10 +66,7 @@ class TodoFrom extends Component {
             ></textarea>
             {error && <div className="invalid-feedback">{error.content}</div>}
           </div>
-          <div className="from-group mt-2 mb-2">
-            Is Save <input type="checkbox" value={this.state.is_save} />
-          </div>
-          <button className="btn btn-success btn-sm">Save</button>
+          <button className="btn btn-success btn-sm mt-2">Save</button>
         </form>
       </>
     );

@@ -6,7 +6,7 @@ class Todo extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-6 offset-3">
             <div className="card">
               <div className="card-header">
                 <h4 className="card-title">Add New Todo List</h4>
