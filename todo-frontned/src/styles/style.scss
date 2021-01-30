@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -6,6 +8,7 @@
 $primary_color: #666666;
 
 body {
+    font-family: 'Lato', sans-serif;
     font-size: 14px;
     color: $primary_color;
 }
@@ -14,9 +17,4 @@ body {
     font-size: 11px;
     padding: 2px;
     border-radius: 4px;
-}
-
-.todo_list button {
-    font-size: 12px;
-    padding:1px 3px;
 }
