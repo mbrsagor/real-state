@@ -33,11 +33,10 @@ export const createTodo = (todo) => (dispatch) => {
       });
     })
     .catch((error) => {
-      console.log(error.res);
       dispatch({
         type: Type.GET_ERRORS,
         payload: {
-          error: error.res,
+          error: error.response.data,
         },
       });
     });

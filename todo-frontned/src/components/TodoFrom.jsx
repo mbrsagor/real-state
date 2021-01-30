@@ -28,7 +28,8 @@ class TodoFrom extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    this.props.createTodo(this.state);
+    let { title, content } = this.state;
+    this.props.createTodo({title, content});
     this.setState({
       title: "",
       content: "",
@@ -47,7 +48,7 @@ class TodoFrom extends Component {
               name="title"
               value={title}
               onChange={this.changeHandler}
-              className={error ? 'form-control is-invalid': 'form-control'}
+              className={error && error.title ? 'form-control is-invalid': 'form-control'}
               placeholder="Enter title here"
             />
             {error && <div className="invalid-feedback">{error.title}</div>}
@@ -57,7 +58,7 @@ class TodoFrom extends Component {
             <textarea
               name="content"
               id="content"
-              className={error ? 'form-control is-invalid': 'form-control'}
+              className={error && error.content ? 'form-control is-invalid': 'form-control'}
               placeholder="Enter todo description"
               cols="30"
               rows="5"
