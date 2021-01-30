@@ -1,19 +1,19 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import Todo from "../pages/Todo";
 import AddTodo from "../pages/AddTodo";
+import Header from "./Header";
 
 function App() {
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-7">
-          <Todo />
-        </div>
-        <div className="col-md-5">
-          <AddTodo />
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Todo} />
+        <Route path="/add-todo" component={AddTodo} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

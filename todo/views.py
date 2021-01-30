@@ -5,5 +5,5 @@ from .models import Todo
 
 
 class TodoViewSet(ModelViewSet):
-    queryset = Todo.objects.all()
+    queryset = Todo.objects.all().order_by('-id')
     serializer_class = TodoSerializer

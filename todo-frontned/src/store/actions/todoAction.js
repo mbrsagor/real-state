@@ -1,10 +1,11 @@
 import axios from "axios";
 import * as Type from "./types";
-import { returnErrors } from './message';
+import { returnErrors } from "./message";
 
 // Todo fetch
 export const fetchTodo = () => (dispatch) => {
-  axios.get("http://127.0.0.1:8000/api/todo/")
+  axios
+    .get("http://127.0.0.1:8000/api/todo/")
     .then((res) => {
       // console.log(res.data);
       dispatch({
@@ -13,16 +14,17 @@ export const fetchTodo = () => (dispatch) => {
       });
     })
     .catch((error) => {
-        console.log(error.res.data);
-        dispatch(returnErrors(error.res.data))
+      console.log(error.res.data);
+      dispatch(returnErrors(error.res.data));
     });
 };
 
 // Todo create
 export const createTodo = (todo) => (dispatch) => {
-  axios.post("http://127.0.0.1:8000/api/todo/", todo)
+  axios
+    .post("http://127.0.0.1:8000/api/todo/", todo)
     .then((res) => {
-      console.log(res.data);
+      //   console.log(res.data);
       dispatch({
         type: Type.CREATE_TODO,
         payload: {
@@ -31,7 +33,7 @@ export const createTodo = (todo) => (dispatch) => {
       });
     })
     .catch((error) => {
-        console.log(error.res);
-        dispatch(returnErrors(error.res));
+      console.log(error.res);
+      dispatch(returnErrors(error.res));
     });
 };

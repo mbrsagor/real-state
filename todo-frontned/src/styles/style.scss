@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+$primary_color: #666666;
+
+body {
+    font-size: 14px;
+    color: $primary_color;
+}
+
+.todo_item_list .status {
+    font-size: 11px;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.todo_list button {
+    font-size: 12px;
+    padding:1px 3px;
+}
