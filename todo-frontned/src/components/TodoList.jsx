@@ -8,11 +8,13 @@ class TodoList extends Component {
     this.props.fetchTodo();
   }
   render() {
+    const { todos } = this.props;
+    // console.log(todos);
     return (
       <>
         <ul className="list-group todo_list">
-          {this.props && this.props.todos.length > 0 ? (
-            this.props.todos.map((todo, index) => {
+          {todos.results &&
+            todos.results.map((todo, index) => {
               return (
                 <li key={index} className="list-group-item todo_item_list">
                   {todo.title}
@@ -20,22 +22,25 @@ class TodoList extends Component {
                     <span className="ml-3">{todo.created_at}</span>
                   </>
                   <div className="mt-3">
-                    <Link className="btn btn-info btn-sm mr-2 detail_link" to={`/todo-details/${todo.id}`}>Details</Link>
+                    <Link
+                      className="btn btn-info btn-sm mr-2 detail_link"
+                      to={`/todo-details/${todo.id}`}
+                    >
+                      Details
+                    </Link>
                     <button className="btn btn-success btn-sm mr-2">
                       Update
                     </button>
                     <button
                       onClick={() => this.props.deleteTodoList(todo.id)}
-                      className="btn btn-danger btn-sm mr-2">
+                      className="btn btn-danger btn-sm mr-2"
+                    >
                       Delete
                     </button>
                   </div>
                 </li>
               );
-            })
-          ) : (
-            <span>Loading...</span>
-          )}
+            })}
         </ul>
       </>
     );
@@ -46,4 +51,6 @@ const mapStateToProps = (state) => ({
   todos: state.todos,
 });
 
-export default connect(mapStateToProps, { fetchTodo, deleteTodoList })(TodoList);
+export default connect(mapStateToProps, { fetchTodo, deleteTodoList })(
+  TodoList
+);

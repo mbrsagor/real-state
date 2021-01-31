@@ -7,10 +7,12 @@ export const fetchTodo = () => (dispatch) => {
   axios
     .get("http://127.0.0.1:8000/api/todo/")
     .then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
       dispatch({
         type: Type.FETCH_TODO,
-        payload: res.data,
+        payload: {
+          todos: res.data,
+        },
       });
     })
     .catch((error) => {
