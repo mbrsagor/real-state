@@ -58,3 +58,18 @@ export const todoDetail = (id) => (dispatch) => {
       dispatch(returnErrors(error.res.data));
     });
 };
+
+// Delete todo list
+export const deleteTodoList = (id) => (dispatch) => {
+  axios
+    .delete(`http://127.0.0.1:8000/api/todo/${id}/`)
+    .then((res) => {
+      dispatch({
+        type: Type.DELETE_TODO,
+        id: res.data.id,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

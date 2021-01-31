@@ -12,8 +12,14 @@ const todoReducer = (state = [], action) => {
     case Type.TODO_DETAIL:
       return {
         ...state,
-        todo: action.payload
-      }
+        todo: action.payload,
+      };
+    case Type.DELETE_TODO:
+      let todos = [];
+      return {
+        ...state,
+        todos: [todos.filter((todo) => todo.id !== action.payload.id)],
+      };
     case Type.GET_ERRORS:
       return {
         ...state,
