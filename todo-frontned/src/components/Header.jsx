@@ -23,14 +23,11 @@ class Header extends Component {
           <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
             <li className="nav-item active">
               <Link className="nav-link" to="/">
-                List <span className="sr-only">(current)</span>
+                Todo List <span className="sr-only">(current)</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/add-todo">Add New </Link>
-            </li>
-            <li className="nav-item mt-2">
-              <span className="text-bold">Mbr-Sagor</span>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/">Logout </Link>

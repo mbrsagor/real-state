@@ -3,7 +3,7 @@ import * as Type from "../actions/types";
 const todoReducer = (state = [], action) => {
   switch (action.type) {
     case Type.FETCH_TODO:
-      return action.payload;
+      return action.payload.todos;
     case Type.CREATE_TODO:
       return {
         todos: [action.payload],
