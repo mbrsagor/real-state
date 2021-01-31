@@ -43,12 +43,13 @@ export const createTodo = (todo) => (dispatch) => {
 };
 
 // Todo Detail page
-export const todoDetails = id => (dispatch) => {
+export const todoDetail = (id) => (dispatch) => {
   axios
     .get(`http://127.0.0.1:8000/api/todo/${id}/`)
     .then((res) => {
+      console.log("Hello detail page action");
       dispatch({
-        type: Type.DETAIL_TODO,
+        type: Type.TODO_DETAIL,
         payload: res.data,
       });
     })

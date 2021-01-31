@@ -9,7 +9,7 @@ const todoReducer = (state = [], action) => {
         todos: [action.payload],
         // error: {}
       };
-    case Type.DETAIL_TODO:
+    case Type.TODO_DETAIL:
       return {
         ...state,
         todo: action.payload

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { todoDetails } from "../store/actions/todoAction";
+import { todoDetail } from "../store/actions/todoAction";
 
 class Tododetails extends Component {
-  
   componentDidMount() {
-    // this.props.todoDetails(this.state.id);
+    document.title = "Todo Detail";
+    // this.props.todoDetail(this.props.match.params.id);
   }
   render() {
     const { todo } = this.props;
@@ -23,4 +23,4 @@ const mapStateToProps = (state) => ({
   todo: state.todos.todo,
 });
 
-export default connect(mapStateToProps, { todoDetails })(Tododetails);
+export default connect(mapStateToProps, { todoDetail })(Tododetails);
