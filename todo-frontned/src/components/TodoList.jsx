@@ -28,9 +28,9 @@ class TodoList extends Component {
                     >
                       Details
                     </Link>
-                    <button className="btn btn-success btn-sm mr-2">
+                    <Link to={`/todo-update/${todo.id}`} className="btn btn-success btn-sm mr-2">
                       Update
-                    </button>
+                    </Link>
                     <button
                       onClick={() => this.props.deleteTodoList(todo.id)}
                       className="btn btn-danger btn-sm mr-2"

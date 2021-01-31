@@ -14,6 +14,11 @@ const todoReducer = (state = [], action) => {
         ...state,
         todo: action.payload,
       };
+    case Type.UPDATE_TODO:
+      return {
+        ...state,
+        todos: [action.payload],
+      };
     case Type.DELETE_TODO:
       let todos = [];
       return {

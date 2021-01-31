@@ -13,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Todo} />
         <Route exact path="/add-todo" component={AddTodo} />
+        <Route exact path="/todo-update/:id" component={AddTodo} />
         <Route exact path="/todo-details/:id" component={TodoDetail} />
       </Switch>
     </BrowserRouter>

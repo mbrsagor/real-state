@@ -2,7 +2,7 @@ import axios from "axios";
 import * as Type from "./types";
 import { returnErrors } from "./message";
 
-// Todo fetch
+// Todo fetch action
 export const fetchTodo = () => (dispatch) => {
   axios
     .get("http://127.0.0.1:8000/api/todo/")
@@ -21,7 +21,7 @@ export const fetchTodo = () => (dispatch) => {
     });
 };
 
-// Todo create
+// Todo create action
 export const createTodo = (todo) => (dispatch) => {
   axios
     .post("http://127.0.0.1:8000/api/todo/", todo)
@@ -44,12 +44,11 @@ export const createTodo = (todo) => (dispatch) => {
     });
 };
 
-// Todo Detail page
+// Todo Detail action
 export const todoDetail = (id) => (dispatch) => {
   axios
     .get(`http://127.0.0.1:8000/api/todo/${id}/`)
     .then((res) => {
-      console.log("Hello detail page action");
       dispatch({
         type: Type.TODO_DETAIL,
         payload: res.data,
@@ -61,7 +60,31 @@ export const todoDetail = (id) => (dispatch) => {
     });
 };
 
-// Delete todo list
+// Todo update action
+export const todoUpdate = (id, todo) => (dispatch) => {
+  axios
+    .put(`http://127.0.0.1:8000/api/todo/${id}/`, todo)
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: Type.UPDATE_TODO,
+        payload: {
+          todos: res.data,
+        },
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: Type.GET_ERRORS,
+        payload: {
+          error: error.response.data,
+        },
+      });
+    });
+};
+
+// Delete todo action
 export const deleteTodoList = (id) => (dispatch) => {
   axios
     .delete(`http://127.0.0.1:8000/api/todo/${id}/`)
