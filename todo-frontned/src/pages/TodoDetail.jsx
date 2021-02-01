@@ -31,7 +31,6 @@ class TodoDetail extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todos,
   todo: state.todos.todo,
 });
 

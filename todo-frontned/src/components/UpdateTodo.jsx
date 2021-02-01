@@ -6,12 +6,13 @@ import Form from "./Form";
 class UpdateTodo extends Component {
   state = {
     title: "",
-    content: ""
+    content: "",
+    error: null
   };
 
+  // 
   componentDidMount() {
     this.props.todoDetail(this.props.match.params.id);
-    console.log(this.props.match.params.id);
   }
 
   changeHandler = (event) => {
@@ -23,16 +24,16 @@ class UpdateTodo extends Component {
   submitHandler = (event) => {
     event.preventDefault();
     let { title, content } = this.state;
-    this.props.todoUpdate({ title, content });
+    this.props.todoUpdate(this.props.match.params.id);
     this.setState({
-      title: this.state.title,
-      content: this.state.content,
+      title: title,
+      content: content,
     });
   };
 
   render() {
     const { title, content, error } = this.state;
-    // const { todo } = this.props;
+    let { todo } = this.props;
     // console.log(todo);
     return (
       <>
@@ -46,8 +47,8 @@ class UpdateTodo extends Component {
                 <div className="card-body">
                   <Form
                     error={error}
-                    title={title}
-                    content={content}
+                    title={todo && todo.title}
+                    content={todo && todo.content}
                     submitHandler={this.submitHandler}
                     changeHandler={this.changeHandler}
                   />
@@ -62,8 +63,7 @@ class UpdateTodo extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todos,
-  todo: state.todos.todos,
+  todo: state.todos.todo,
 });
 
 export default connect(mapStateToProps, { todoUpdate, todoDetail })(UpdateTodo);
