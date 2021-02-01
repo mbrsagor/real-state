@@ -31,7 +31,7 @@ class TodoFrom extends Component {
     return (
       <>
         <Form
-          error={error && error.title}
+          error={error}
           title={title}
           content={content}
           submitHandler={this.submitHandler}
@@ -42,8 +42,4 @@ class TodoFrom extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  todos: state.todos,
-});
-
-export default connect(mapStateToProps, { createTodo })(TodoFrom);
+export default connect(null, { createTodo })(TodoFrom);

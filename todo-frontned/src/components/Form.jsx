@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 export class Form extends Component {
   state = {
-    error: "",
+    error: {},
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {

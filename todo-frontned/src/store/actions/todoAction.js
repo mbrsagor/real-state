@@ -31,6 +31,7 @@ export const createTodo = (todo) => (dispatch) => {
         type: Type.CREATE_TODO,
         payload: {
           todos: res.data,
+          success_message: "Todo has been successfully created.",
         },
       });
     })
