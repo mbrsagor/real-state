@@ -56,7 +56,7 @@ export const todoDetail = (id) => (dispatch) => {
     })
     .catch((error) => {
       console.log(error);
-      dispatch(returnErrors(error.res.data));
+      dispatch(returnErrors(error.res));
     });
 };
 

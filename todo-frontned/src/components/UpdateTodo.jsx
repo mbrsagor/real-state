@@ -6,13 +6,12 @@ import Form from "./Form";
 class UpdateTodo extends Component {
   state = {
     title: "",
-    content: "",
-    error: {},
+    content: ""
   };
 
   componentDidMount() {
     this.props.todoDetail(this.props.match.params.id);
-    // console.log(this.props.todoDetail(this.props.match.params.id));
+    console.log(this.props.match.params.id);
   }
 
   changeHandler = (event) => {
@@ -24,17 +23,17 @@ class UpdateTodo extends Component {
   submitHandler = (event) => {
     event.preventDefault();
     let { title, content } = this.state;
-    this.props.createTodo({ title, content });
+    this.props.todoUpdate({ title, content });
     this.setState({
-      title: "",
-      content: "",
+      title: this.state.title,
+      content: this.state.content,
     });
   };
 
   render() {
     const { title, content, error } = this.state;
-    const { todo } = this.props;
-    console.log(todo);
+    // const { todo } = this.props;
+    // console.log(todo);
     return (
       <>
         <div className="container mt-5">
