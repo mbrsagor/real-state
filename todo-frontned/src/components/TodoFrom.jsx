@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createTodo } from "../store/actions/todoAction";
+import Form from './Form';
 
 class TodoFrom extends Component {
   state = {
@@ -40,7 +41,7 @@ class TodoFrom extends Component {
     const { title, content, error } = this.state;
     return (
       <>
-        <form onSubmit={this.submitHandler}>
+        {/* <form onSubmit={this.submitHandler}>
           <div className="from-group">
             <label htmlFor="title">Enter todo title</label>
             <input
@@ -68,7 +69,15 @@ class TodoFrom extends Component {
             {error && <div className="invalid-feedback">{error.content}</div>}
           </div>
           <button className="btn btn-success btn-sm mt-2">Save</button>
-        </form>
+        </form> */}
+
+        <Form
+          error={error}
+          title={title}
+          content={content}
+          submitHandler={this.submitHandler}
+          changeHandler={this.changeHandler}
+        />
       </>
     );
   }
