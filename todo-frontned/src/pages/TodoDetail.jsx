@@ -1,18 +1,26 @@
 import React, { Component } from "react";
-import Tododetails from "../components/Tododetails";
+import { connect } from "react-redux";
+import { todoDetail } from "../store/actions/todoAction";
 
 class TodoDetail extends Component {
+
+  componentDidMount() {
+    this.props.todoDetail(this.props.match.params.id);
+  }
+
   render() {
+    let { todo } = this.props;
+    // console.log(todo);
     return (
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-3">
             <div className="card">
               <div className="card-header">
-                <h4 className="card-title">Todo Detail page</h4>
+                {todo && <h4 className="card-title">{todo.title}</h4>}
               </div>
               <div className="card-body">
-                <Tododetails />
+                {todo && <p className="card-text">{todo.content}</p>}
               </div>
             </div>
           </div>
@@ -22,4 +30,9 @@ class TodoDetail extends Component {
   }
 }
 
-export default TodoDetail;
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+  todo: state.todos.todo,
+});
+
+export default connect(mapStateToProps, {todoDetail}) (TodoDetail)

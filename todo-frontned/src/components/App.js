@@ -6,6 +6,7 @@ import AddTodo from "../pages/AddTodo";
 import TodoDetail from "../pages/TodoDetail";
 import Header from "./Header";
 import UpdateTodo from '../components/UpdateTodo';
+// import TodoDetails from '../components/Tododetails'
 
 function App() {
   return (
