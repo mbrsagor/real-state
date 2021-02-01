@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createTodo } from "../store/actions/todoAction";
-// import Form from './Form';
+import Form from "./Form";
 
 class TodoFrom extends Component {
   state = {
@@ -9,17 +9,6 @@ class TodoFrom extends Component {
     content: "",
     error: {},
   };
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (
-      JSON.stringify(nextProps.todos.error) !== JSON.stringify(prevState.error)
-    ) {
-      return {
-        error: nextProps.todos.error,
-      };
-    }
-    return null;
-  }
 
   changeHandler = (event) => {
     this.setState({
@@ -30,7 +19,7 @@ class TodoFrom extends Component {
   submitHandler = (event) => {
     event.preventDefault();
     let { title, content } = this.state;
-    this.props.createTodo({title, content});
+    this.props.createTodo({ title, content });
     this.setState({
       title: "",
       content: "",
@@ -41,43 +30,13 @@ class TodoFrom extends Component {
     const { title, content, error } = this.state;
     return (
       <>
-        <form onSubmit={this.submitHandler}>
-          <div className="from-group">
-            <label htmlFor="title">Enter todo title</label>
-            <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={this.changeHandler}
-              className={error && error.title ? 'form-control is-invalid': 'form-control'}
-              placeholder="Enter title here"
-            />
-            {error && <div className="invalid-feedback">{error.title}</div>}
-          </div>
-          <div className="from-group">
-            <label htmlFor="content">Enter Description</label>
-            <textarea
-              name="content"
-              id="content"
-              className={error && error.content ? 'form-control is-invalid': 'form-control'}
-              placeholder="Enter todo description"
-              cols="30"
-              rows="5"
-              value={content}
-              onChange={this.changeHandler}
-            ></textarea>
-            {error && <div className="invalid-feedback">{error.content}</div>}
-          </div>
-          <button className="btn btn-success btn-sm mt-2">Save</button>
-        </form>
-        
-        {/* <Form
+        <Form
           error={error && error.title}
           title={title}
           content={content}
           submitHandler={this.submitHandler}
           changeHandler={this.changeHandler}
-        /> */}
+        />
       </>
     );
   }
