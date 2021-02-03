@@ -1,11 +1,12 @@
 import axios from "axios";
 import * as Type from "./types";
 import { returnErrors } from "./message";
+import {BASE_URL} from '../../config'
 
 // Todo fetch action
 export const fetchTodo = () => (dispatch) => {
   axios
-    .get("http://127.0.0.1:8000/api/todo/")
+    .get(`${BASE_URL}/api/todo/`)
     .then((res) => {
       // console.log(res.data);
       dispatch({
@@ -24,7 +25,7 @@ export const fetchTodo = () => (dispatch) => {
 // Todo create action
 export const createTodo = (todo) => (dispatch) => {
   axios
-    .post("http://127.0.0.1:8000/api/todo/", todo)
+    .post(`${BASE_URL}/api/todo/`, todo)
     .then((res) => {
       //   console.log(res.data);
       dispatch({
@@ -48,7 +49,7 @@ export const createTodo = (todo) => (dispatch) => {
 // Todo Detail action
 export const todoDetail = (id) => (dispatch) => {
   axios
-    .get(`http://127.0.0.1:8000/api/todo/${id}/`)
+    .get(`${BASE_URL}/api/todo/${id}/`)
     .then((res) => {
       dispatch({
         type: Type.TODO_DETAIL,
@@ -64,7 +65,7 @@ export const todoDetail = (id) => (dispatch) => {
 // Todo update action
 export const todoUpdate = (id, todo) => (dispatch) => {
   axios
-    .put(`http://127.0.0.1:8000/api/todo/${id}/`, todo)
+    .put(`${BASE_URL}/api/todo/${id}/`, todo)
     .then((res) => {
       console.log(res.data);
       dispatch({
@@ -88,7 +89,7 @@ export const todoUpdate = (id, todo) => (dispatch) => {
 // Delete todo action
 export const deleteTodoList = (id) => (dispatch) => {
   axios
-    .delete(`http://127.0.0.1:8000/api/todo/${id}/`)
+    .delete(`${BASE_URL}/api/todo/${id}/`)
     .then((res) => {
       dispatch({
         type: Type.DELETE_TODO,
