@@ -7,6 +7,12 @@ The following command will install for mac os I thing windows will be similar ty
 
 - Python 3.8.5
 - Django 3.1.5
+- psql (PostgreSQL) 12.5
+
+###### Postgres installation new command line.
+```
+pip install psycopg2-binary
+```
 
 Open your terminal then run the following command:
 ```base

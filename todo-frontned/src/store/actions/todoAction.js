@@ -16,8 +16,8 @@ export const fetchTodo = () => (dispatch) => {
       });
     })
     .catch((error) => {
-      console.log(error.res.data);
-      dispatch(returnErrors(error.res.data));
+      console.log(error.res);
+      dispatch(returnErrors(error.res));
     });
 };
 
