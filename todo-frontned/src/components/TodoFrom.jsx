@@ -6,8 +6,7 @@ import Form from "./Form";
 class TodoFrom extends Component {
   state = {
     title: "",
-    content: "",
-    error: {},
+    content: ""
   };
 
   changeHandler = (event) => {
@@ -27,11 +26,10 @@ class TodoFrom extends Component {
   };
 
   render() {
-    const { title, content, error } = this.state;
+    const { title, content} = this.state;
     return (
       <>
         <Form
-          error={error}
           title={title}
           content={content}
           submitHandler={this.submitHandler}
