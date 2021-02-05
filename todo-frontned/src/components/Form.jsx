@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-export class Form extends Component {
+class Form extends Component {
   state = {
     error: {},
   };
@@ -20,12 +20,14 @@ export class Form extends Component {
   render() {
     const { error } = this.state;
     return (
-      <div>
+      <>
+        {this.props.success_message && <p>{this.props.success_message}</p>}
         <form onSubmit={this.props.submitHandler}>
           <div className="from-group">
             <label htmlFor="title">Enter todo title</label>
             <input
               type="text"
+              id="title"
               name="title"
               value={this.props.title}
               onChange={this.props.changeHandler}
@@ -42,6 +44,7 @@ export class Form extends Component {
             <label htmlFor="content">Enter Description</label>
             <textarea
               name="content"
+              id="content"
               className={
                 error && error.content
                   ? "form-control is-invalid"
@@ -57,7 +60,7 @@ export class Form extends Component {
           </div>
           <button className="btn btn-success btn-sm mt-2">Save</button>
         </form>
-      </div>
+      </>
     );
   }
 }
