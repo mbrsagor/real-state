@@ -144,6 +144,6 @@ REST_FRAMEWORK = {
     ),
     'DATETIME_FORMAT': '%Y-%m-%d %I:%M %p ',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 7,
+    'PAGE_SIZE': 5,
     'PAGINATE_BY_PARAM': 'page_size'
 }

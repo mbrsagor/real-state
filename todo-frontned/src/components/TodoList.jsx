@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchTodo, deleteTodoList } from "../store/actions/todoAction";
-import { Link } from "react-router-dom";
+import Search from './Search';
 
 class TodoList extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class TodoList extends Component {
     // console.log(todos);
     return (
       <>
+        <Search />
         <ul className="list-group todo_list">
           {todos.results &&
             todos.results.map((todo, index) => {
