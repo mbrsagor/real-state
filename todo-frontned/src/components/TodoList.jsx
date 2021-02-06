@@ -9,13 +9,6 @@ class TodoList extends Component {
     searchValue: ''
   }
 
-  searchHandler  = event => {
-    this.setState({
-      searchValue: event.target.value
-    })
-
-  }
-
   componentDidMount() {
     this.props.fetchTodo();
   }
@@ -30,7 +23,7 @@ class TodoList extends Component {
       <>
         <Search 
         searchValue={this.searchValue}
-        searchHandler={this.searchHandler} />
+        searchHandler={(e) => this.setState({searchValue: e.target.value})} />
 
         <ul className="list-group todo_list">
           {filterTodo &&
@@ -60,7 +53,7 @@ class TodoList extends Component {
                   </div>
                 </li>
               );
-            })}
+            })} 
         </ul>
       </>
     );
