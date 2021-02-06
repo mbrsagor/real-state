@@ -5,18 +5,36 @@ import { fetchTodo, deleteTodoList } from "../store/actions/todoAction";
 import Search from './Search';
 
 class TodoList extends Component {
+  state = {
+    searchValue: ''
+  }
+
+  searchHandler  = event => {
+    this.setState({
+      searchValue: event.target.value
+    })
+
+  }
+
   componentDidMount() {
     this.props.fetchTodo();
   }
   render() {
     const { todos } = this.props;
-    // console.log(todos);
+    let filterTodo = todos.results && todos.results.filter((todo) =>{
+      return todo.title.toLowerCase().includes(this.state.searchValue.toLowerCase())
+    })
+    
+    // console.log(filterTodo);
     return (
       <>
-        <Search />
+        <Search 
+        searchValue={this.searchValue}
+        searchHandler={this.searchHandler} />
+
         <ul className="list-group todo_list">
-          {todos.results &&
-            todos.results.map((todo, index) => {
+          {filterTodo &&
+            filterTodo.map((todo, index) => {
               return (
                 <li key={index} className="list-group-item todo_item_list">
                   {todo.title}

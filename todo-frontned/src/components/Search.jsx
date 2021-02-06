@@ -6,7 +6,10 @@ class Search extends Component {
             <div>
                 <div className="form-group">
                     <input
+                     onChange={this.props.searchHandler}
+                     name="search"
                      type="text" 
+                     value={this.props.searchValue}
                      className="form-control" 
                      placeholder="Search..."
                     />
