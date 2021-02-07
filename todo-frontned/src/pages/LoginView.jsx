@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import LoginForm from '../components/LoginForm';
+import {login} from '../store/actions/authAction'
 
 
 class LoginView extends Component {
@@ -11,7 +13,12 @@ class LoginView extends Component {
     
     submitHandler = e => {
         e.preventDefault();
-        console.log(e)
+        const {username, password} = this.state;
+        this.props.login({username, password})
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
 
     changeHandler = e => {
@@ -22,7 +29,7 @@ class LoginView extends Component {
 
 
     render() {
-        const {username, password} = this.state
+        const {username, password} = this.state;
         return (
             <>
                 <LoginForm 
@@ -36,4 +43,4 @@ class LoginView extends Component {
     }
 }
 
-export default LoginView
+export default connect(null, {login}) (LoginView)

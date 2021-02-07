@@ -20,6 +20,7 @@ class Login extends Component {
                                             type="text" 
                                             value={this.props.username}
                                             id="username"
+                                            name="username"
                                             onChange={this.props.changeHandler}
                                             className="form-control" 
                                             placeholder="Enter your username"
@@ -29,6 +30,7 @@ class Login extends Component {
                                         <label htmlFor="password">Enter Password</label>
                                         <input 
                                             type="password" 
+                                            name="password"
                                             value={this.props.password}
                                             id="password"
                                             onChange={this.props.changeHandler}
