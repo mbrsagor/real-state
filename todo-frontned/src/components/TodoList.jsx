@@ -17,7 +17,6 @@ class TodoList extends Component {
     let filterTodo = todos.results && todos.results.filter((todo) =>{
       return todo.title.toLowerCase().includes(this.state.searchValue.toLowerCase())
     })
-    
     // console.log(filterTodo);
     return (
       <>
