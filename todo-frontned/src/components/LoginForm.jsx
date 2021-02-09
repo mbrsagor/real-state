@@ -72,7 +72,7 @@ class Login extends Component {
                                 </form> 
                             </div>
                             <div className="card-footer">
-                               <p>Don't have account yet? Register <Link to="/">here.</Link></p>
+                               <p>Don't have account yet? Register <Link to="/registration">here.</Link></p>
                             </div>
                         </div>
                     </div>

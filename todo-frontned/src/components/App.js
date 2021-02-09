@@ -7,6 +7,7 @@ import TodoDetail from "../pages/TodoDetail";
 import Header from "./Header";
 import UpdateTodo from '../components/UpdateTodo';
 import LoginView from '../pages/LoginView';
+import RegisterView from '../pages/RegisterView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/todo-update/:id" component={UpdateTodo} />
         <Route exact path="/todo-details/:id" component={TodoDetail} />
         <Route exact path="/login" component={LoginView} />
+        <Route exact path="/registration" component={RegisterView} />
       </Switch>
     </BrowserRouter>
   );
