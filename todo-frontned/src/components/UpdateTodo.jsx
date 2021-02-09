@@ -32,7 +32,7 @@ class UpdateTodo extends Component {
   };
 
   render() {
-    const { title, content, error } = this.state;
+    const { error } = this.state;
     let { todo } = this.props;
     // console.log(todo);
     return (

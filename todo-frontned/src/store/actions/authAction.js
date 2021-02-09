@@ -1,8 +1,9 @@
 import axios from 'axios';
 import * as Types from '../actions/types';
+import {BASE_URL} from '../../config';
 
 export const login = user => dispatch => {
-    axios.post('http://127.0.0.1:8000/api/login/', user)
+    axios.post(`${BASE_URL}/login/`, user)
         .then((res) => {
             console.log(res)
             dispatch({
