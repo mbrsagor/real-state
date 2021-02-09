@@ -14,7 +14,7 @@ const authReducer = (state=initialVal, action) => {
                 isAuthenticated: Object.keys(action.payload.user),
                 error:{}
             }
-        case Types.USER_LOGIN_FAILED:
+        case Types.USER_ERROR:
             return {
                 ...state,
                 error: action.payload.error

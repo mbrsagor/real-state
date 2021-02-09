@@ -8,4 +8,4 @@ export const GET_ERRORS = "GET_ERRORS";
 
 
 export const SET_USER = "SET_USER";
-export const USER_LOGIN_FAILED = "USER_LOGIN_FAILED";
+export const USER_ERROR = "USER_ERROR";

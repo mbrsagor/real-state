@@ -5,7 +5,7 @@ import {BASE_URL} from '../../config';
 export const login = user => dispatch => {
     axios.post(`${BASE_URL}/login/`, user)
         .then((res) => {
-            console.log(res)
+            // console.log(res)
             dispatch({
                 type: Types.SET_USER,
                 payload: {
@@ -14,6 +14,12 @@ export const login = user => dispatch => {
             })
         })
         .catch((error) =>{
-            console.log(error);
+            // console.log(error);
+            dispatch({
+                type: Types.USER_ERROR,
+                payload: {
+                    error: error.response.data
+                }
+            })
         })
 }
