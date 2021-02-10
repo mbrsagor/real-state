@@ -1,16 +1,22 @@
 import axios from 'axios';
+import jwtDecode from "jwt-decode";
 import * as Types from '../actions/types';
 import {BASE_URL} from '../../config';
+import setAuthToken from '../../utils/setAuthToken';
 
 // user login
 export const login = (user, history) => dispatch => {
     axios.post(`${BASE_URL}/login/`, user)
         .then((res) => {
-            // console.log(res)
+            console.log(res.data);
+            let token = res.data.access;
+            localStorage.setItem('auth_token', token)
+            setAuthToken(token)
+            let decode = jwtDecode(token)
             dispatch({
                 type: Types.SET_USER,
                 payload: {
-                    user: res.data
+                    user: decode
                 }
             })
             history.push('/');
