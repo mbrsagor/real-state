@@ -39,5 +39,11 @@ export const registration = user => dispatch => {
     })
     .catch((error) =>{
         console.log(error);
+        dispatch({
+            type: Types.USER_ERROR,
+            payload: {
+                error: error.response.data
+            }
+        })
     })
 }

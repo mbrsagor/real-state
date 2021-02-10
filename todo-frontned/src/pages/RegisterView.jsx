@@ -32,6 +32,7 @@ class RegisterView extends Component {
     }
 
     render() {
+        let {username, email, password, password_confirm} = this.state;
         return (
             <div className="container mt-5">
                 <div className="row">
@@ -42,10 +43,10 @@ class RegisterView extends Component {
                             </div>
                             <div className="card-body">
                                 <Register 
-                                    username={this.username}
-                                    email={this.email}
-                                    password={this.password}
-                                    password_confirm={this.password_confirm}
+                                    username={username}
+                                    email={email}
+                                    password={password}
+                                    password_confirm={password_confirm}
                                     changeHandler = {this.changeHandler}
                                     submitHandler= {this.submitHandler}
                                 />
