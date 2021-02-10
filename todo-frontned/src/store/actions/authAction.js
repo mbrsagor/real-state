@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as Types from '../actions/types';
 import {BASE_URL} from '../../config';
 
+// user login
 export const login = user => dispatch => {
     axios.post(`${BASE_URL}/login/`, user)
         .then((res) => {
@@ -24,9 +25,19 @@ export const login = user => dispatch => {
         })
 }
 
-
+// User registration
 export const registration = user => dispatch => {
     axios.post(`${BASE_URL}/register/`, user)
-    .then((res) => console.log(res))
-    .catch((err) =>console.log(err))
+    .then((res) =>{
+        console.log(res)
+        dispatch({
+            type: Types.SET_USER,
+            payload: {
+                user: res.data
+            }
+        })
+    })
+    .catch((error) =>{
+        console.log(error);
+    })
 }

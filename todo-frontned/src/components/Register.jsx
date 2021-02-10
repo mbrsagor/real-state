@@ -10,6 +10,7 @@ class Register extends Component {
                         <input
                             type="text"
                             value={this.props.username}
+                            onChange={this.props.changeHandler}
                             id="username"
                             className="form-control"
                             name="username"
@@ -22,30 +23,33 @@ class Register extends Component {
                             type="email" 
                             id="email"
                             value={this.props.email}
+                            onChange={this.props.changeHandler}
                             name="email"
                             className="form-control"
                             placeholder="Enter a valid email"
                          />
                     </div>
                     <div className="from-group">
-                        <label htmlFor="password1">Enter password</label>
+                        <label htmlFor="password">Enter password</label>
                         <input
                             type="password" 
                             id="password"
                             className="form-control"
-                            value={this.props.password1}
-                            name="password1"
+                            value={this.props.password}
+                            onChange={this.props.changeHandler}
+                            name="password"
                             placeholder="*****************"
                          />
                     </div>
                     <div className="from-group">
-                        <label htmlFor="password2">Enter confirm password</label>
+                        <label htmlFor="password_confirm">Enter confirm password</label>
                         <input
                             type="password" 
                             id="password2"
                             className="form-control"
-                            value={this.props.password2}
-                            name="password2"
+                            value={this.props.password_confirm}
+                            onChange={this.props.changeHandler}
+                            name="password_confirm"
                             placeholder="*****************"
                          />
                     </div>
