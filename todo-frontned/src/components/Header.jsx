@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
+import {logout} from '../store/actions/authAction'
 
 class Header extends Component {
   render() {
+    let {auth} = this.props
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <button
@@ -30,7 +33,8 @@ class Header extends Component {
               <Link className="nav-link" to="/add-todo">Add New </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">Logout </Link>
+              {auth.isAuthenticated ? auth.user.email: null}
+              <Link onClick={() =>this.props.logout(this.props.history)} className="nav-link" to="/">Logout </Link>
             </li>
           </ul>
         </div>
@@ -39,4 +43,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  auth : state.auth
+})
+
+export default connect(mapStateToProps,{logout}) (Header);
