@@ -4,7 +4,7 @@ class Register extends Component {
     render() {
         return (
             <>
-                <form>
+                <form onSubmit={this.props.submitHandler}>
                     <div className="from-group">
                         <label htmlFor="username">Enter username</label>
                         <input
@@ -49,6 +49,7 @@ class Register extends Component {
                             placeholder="*****************"
                          />
                     </div>
+                    <button className="btn btn-success btn-sm mt-2">Register</button>
                 </form>
             </>
         )

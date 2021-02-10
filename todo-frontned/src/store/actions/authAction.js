@@ -23,3 +23,10 @@ export const login = user => dispatch => {
             })
         })
 }
+
+
+export const registration = user => dispatch => {
+    axios.post(`${BASE_URL}/register/`, user)
+    .then((res) => console.log(res))
+    .catch((err) =>console.log(err))
+}
