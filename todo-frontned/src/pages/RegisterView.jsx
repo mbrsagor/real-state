@@ -22,7 +22,7 @@ class RegisterView extends Component {
     submitHandler = e => {
         e.preventDefault();
         const {username, email, password, password_confirm} = this.state;
-        this.props.registration({username, email, password, password_confirm})
+        this.props.registration({username, email, password, password_confirm}, this.props.history)
         this.setState({
             username: '',
             email: '',

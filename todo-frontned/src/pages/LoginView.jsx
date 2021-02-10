@@ -14,7 +14,7 @@ class LoginView extends Component {
     submitHandler = e => {
         e.preventDefault();
         const {username, password} = this.state;
-        this.props.login({username, password})
+        this.props.login({username, password}, this.props.history)
         this.setState({
             username: '',
             password: ''

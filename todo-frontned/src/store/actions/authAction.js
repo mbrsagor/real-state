@@ -3,7 +3,7 @@ import * as Types from '../actions/types';
 import {BASE_URL} from '../../config';
 
 // user login
-export const login = user => dispatch => {
+export const login = (user, history) => dispatch => {
     axios.post(`${BASE_URL}/login/`, user)
         .then((res) => {
             // console.log(res)
@@ -13,6 +13,7 @@ export const login = user => dispatch => {
                     user: res.data
                 }
             })
+            history.push('/');
         })
         .catch((error) =>{
             // console.log(error);
@@ -26,16 +27,11 @@ export const login = user => dispatch => {
 }
 
 // User registration
-export const registration = user => dispatch => {
+export const registration = (user, history) => dispatch => {
     axios.post(`${BASE_URL}/register/`, user)
     .then((res) =>{
         console.log(res)
-        dispatch({
-            type: Types.SET_USER,
-            payload: {
-                user: res.data
-            }
-        })
+        history.push("/login");
     })
     .catch((error) =>{
         console.log(error);
