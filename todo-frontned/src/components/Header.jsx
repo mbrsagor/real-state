@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux';
-import {logout} from '../store/actions/authAction'
+import AuthNav from './AuthNav';
+import NavAuthTwo from './NavAuthTwo';
 
 class Header extends Component {
   render() {
@@ -33,10 +34,7 @@ class Header extends Component {
             <li className="nav-item">
               <Link className="nav-link" to="/add-todo">Add New </Link>
             </li>
-            <li className="nav-item">
-              {auth.isAuthenticated ? auth.user.email: null}
-              <Link onClick={() =>this.props.logout(this.props.history)} className="nav-link" to="/">Logout </Link>
-            </li>
+            {auth.isAuthenticated ? <AuthNav /> : <NavAuthTwo />}
           </ul>
         </div>
         </div>
@@ -49,4 +47,4 @@ const mapStateToProps = state => ({
   auth : state.auth
 })
 
-export default connect(mapStateToProps,{logout}) (Header);
+export default connect(mapStateToProps) (Header);
