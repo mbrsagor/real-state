@@ -8,6 +8,7 @@ class Header extends Component {
     let {auth} = this.props
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div className="container">
         <button
           className="navbar-toggler"
           type="button"
@@ -37,6 +38,7 @@ class Header extends Component {
               <Link onClick={() =>this.props.logout(this.props.history)} className="nav-link" to="/">Logout </Link>
             </li>
           </ul>
+        </div>
         </div>
       </nav>
     );
