@@ -54,7 +54,7 @@ export const registration = (user, history) => dispatch => {
 // Logout
 export const logout = history => {
     localStorage.removeItem('auth_token')
-    history.push('/login')
+    // history.push('/login')
     return {
         type: Types.SET_USER,
         payload: {

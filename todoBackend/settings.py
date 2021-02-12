@@ -87,8 +87,7 @@ DATABASES = {
         'NAME': 'djangoreacttodo',
         'USER': 'mbr-sagor',
         'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'localhost'
     }
 }
 
