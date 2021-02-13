@@ -13,10 +13,6 @@ class TodoList extends Component {
     this.props.fetchTodo();
   }
 
-  componentDidUpdate() {
-    this.props.fetchTodo();
-  }
-
   render() {
     const { todos } = this.props;
     let filterTodo = todos.results && todos.results.filter((todo) =>{

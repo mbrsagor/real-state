@@ -17,9 +17,9 @@ function App() {
       <Header />
       <Switch>
         <PrivateRoute exact path="/" component={Todo} />
-        <Route exact path="/add-todo" component={AddTodo} />
-        <Route exact path="/todo-update/:id" component={UpdateTodo} />
-        <Route exact path="/todo-details/:id" component={TodoDetail} />
+        <PrivateRoute exact path="/add-todo" component={AddTodo} />
+        <PrivateRoute exact path="/todo-update/:id" component={UpdateTodo} />
+        <PrivateRoute exact path="/todo-details/:id" component={TodoDetail} />
         <Route exact path="/login" component={LoginView} />
         <Route exact path="/registration" component={RegisterView} />
       </Switch>
