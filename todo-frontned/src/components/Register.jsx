@@ -93,7 +93,7 @@ class Register extends Component {
                          />
                          {error.password_confirm && <div className="invalid-feedback">{error.password_confirm}</div>}
                     </div>
-                    <button className="btn btn-success btn-sm mt-2">Register</button>
+                    <button type="submit" className="btn btn-success btn-sm mt-2">Register</button>
                 </form>
             </>
         )

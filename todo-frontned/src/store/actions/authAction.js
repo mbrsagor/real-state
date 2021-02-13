@@ -8,7 +8,7 @@ import setAuthToken from '../../utils/setAuthToken';
 export const login = (user, history) => dispatch => {
     axios.post(`${BASE_URL}/login/`, user)
         .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             let token = res.data.access;
             localStorage.setItem('auth_token', token)
             setAuthToken(token)
@@ -54,7 +54,7 @@ export const registration = (user, history) => dispatch => {
 // Logout
 export const logout = history => {
     localStorage.removeItem('auth_token')
-    // history.push('/login')
+    history.push('/login');
     return {
         type: Types.SET_USER,
         payload: {
