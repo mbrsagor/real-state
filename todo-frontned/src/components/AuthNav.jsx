@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {logout} from '../store/actions/authAction';
 
 class AuthNav extends Component {
@@ -9,7 +10,7 @@ class AuthNav extends Component {
         return (
             <>
                 <li className="nav-item">
-                    <button onClick={() =>this.props.logout(this.props.history)} className="btn btn-default btn-sm nav-link">Logout </button>
+                    <Link to="/login" onClick={() =>this.props.logout(this.props.history)} className="nav-link">Logout </Link>
                 </li>
                 <li className="nav-item mt-2"> {auth.user.email}</li>
             </>

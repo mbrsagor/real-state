@@ -23,7 +23,7 @@ const todoReducer = (state = [], action) => {
       let todos = [];
       return {
         ...state,
-        todos: [todos.filter(todo => action.payload !== todo)],
+        todos: [todos.filter(todo => todo.id !== action.payload)],
       };
     case Type.GET_ERRORS:
       return {
