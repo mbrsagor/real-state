@@ -5,7 +5,7 @@ from rest_framework_simplejwt.utils import datetime_to_epoch
 
 from .models import Todo
 
-SUPERUSER_LIFETIME = datetime.timedelta(days=7)
+SUPERUSER_LIFETIME = datetime.timedelta(hours=45)
 
 class TodoSerializer(serializers.ModelSerializer):
     class Meta:

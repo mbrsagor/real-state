@@ -93,7 +93,7 @@ export const deleteTodoList = (id) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: Type.DELETE_TODO,
-        id: res.data.id,
+        payload: res.data,
       });
     })
     .catch((err) => {
