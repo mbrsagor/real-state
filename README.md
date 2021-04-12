@@ -5,13 +5,28 @@
 1st you have to install python on your system then install Django and virtualenv. After that you should follow the instructions below.
 The following command will install for mac os I thing windows will be similar types. If you develop the app windows system you may fetch little error. I recommend you use linux operating system.
 
+##### Prerequisites
 - Python 3.8.5
 - Django 3.1.5
 - psql (PostgreSQL) 12.5
 
-###### Postgres installation new command line.
+###### Postgres installation new command line. [If any issues raise]
 ```
 pip install psycopg2-binary
+```
+
+##### Update database information from settings.py file.
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangoreacttodo',
+        'USER': 'mbr-sagor',
+        'PASSWORD': '12345',
+        'HOST': 'localhost'
+    }
+}
 ```
 
 Open your terminal then run the following command:
